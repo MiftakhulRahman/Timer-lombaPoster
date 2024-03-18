@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timer Page</title>
+    <link rel="stylesheet" href="timer.css">
+</head>
+<body>
+
+    <div class="wrapper">
+        <h1 class="heading">LOMBA POSTER INFORMATIKA CUP</h1>
+        <div class="wrapper2">
+            <h6 class="description">Nama File: NamaLengkap_AsalSekolah/Kampus</h6>
+            <h6 class="description">Format File: JPG/PNG 1080px x 1350px</h6>
+            <h6 class="description">Link Pengumpulan: https://bitly.ws/38Vhg</h6>
+        </div>
+        <div class="timer">
+            <div class="sub_timer">
+                <h1 id="hour" class="digit">00</h1>
+                <p class="digit_name">Jam</p>
+            </div>
+            <div class="sub_timer">
+                <h1 id="min" class="digit">00</h1>
+                <p class="digit_name">Menit</p>
+            </div>
+            <div class="sub_timer">
+                <h1 id="sec" class="digit">00</h1>
+                <p class="digit_name">Detik</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        var target_mili_sec = new Date("Jan 08, 2024 11:40:0 GMT+0700").getTime();
+        function timer() {
+            var now_mili_sec = new Date().getTime();
+            var remaining_sec = Math.floor((target_mili_sec - now_mili_sec) / 1000);
+
+            // Remove the days calculation and display
+            var hour = Math.floor((remaining_sec % (3600 * 24)) / 3600);
+            var min = Math.floor((remaining_sec % 3600) / 60);
+            var sec = Math.floor(remaining_sec % 60);
+
+            // Update only hours, minutes, and seconds
+            document.querySelector("#hour").innerHTML = hour;
+            document.querySelector("#min").innerHTML = min;
+            document.querySelector("#sec").innerHTML = sec;
+        }
+
+        setInterval(timer, 1000);
+    </script>
+
+</body>
+</html>
